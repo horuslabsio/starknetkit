@@ -29,7 +29,7 @@ export const connect = async ({
   resultType = "wallet",
   ...restOptions
 }: ConnectOptionsWithConnectors | ConnectOptions): Promise<ModalResult> => {
-  const { webWalletUrl = DEFAULT_WEBWALLET_URL, argentMobileOptions } =
+  const { webWalletUrl = DEFAULT_WEBWALLET_URL, argentMobileOptions, tokenboundOptions } =
     restOptions as ConnectOptions
 
   const { connectors } = restOptions as ConnectOptionsWithConnectors
@@ -41,6 +41,7 @@ export const connect = async ({
       ? defaultConnectors({
           argentMobileOptions,
           webWalletUrl,
+          tokenboundOptions,
         })
       : connectors
 

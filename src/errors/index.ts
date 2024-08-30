@@ -17,3 +17,9 @@ export class UserNotConnectedError extends Error {
   name = "UserNotConnectedError";
   message = "User not connected";
 }
+
+
+export class WalletNotFoundError extends Error {
+  name = "WalletNotFoundError";
+  message = "Wallet not found";
+}

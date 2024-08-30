@@ -27,6 +27,10 @@ export default defineConfig({
           __dirname,
           "src/connectors/injected/index.ts",
         ),
+        tokenboundAccount: resolve(
+          __dirname,
+          "src/connectors/tokenboundAccount/index.ts",
+        ),
       },
       formats: ["es", "cjs"],
     },

@@ -6,6 +6,7 @@ import type {
   ConnectorIcons,
   StarknetkitConnector,
 } from "../connectors/connector"
+import { TokenboundConnectorOptions } from "src/connectors"
 
 export type StoreVersion = "chrome" | "firefox" | "edge"
 
@@ -16,11 +17,13 @@ export interface ConnectOptions extends GetWalletOptions {
   storeVersion?: StoreVersion | null
   resultType?: "connector" | "wallet"
   webWalletUrl?: string
-  argentMobileOptions: ArgentMobileConnectorOptions
+  argentMobileOptions: ArgentMobileConnectorOptions,
+  tokenboundOptions: TokenboundConnectorOptions
+
 }
 
 export interface ConnectOptionsWithConnectors
-  extends Omit<ConnectOptions, "webWalletUrl" | "argentMobileOptions"> {
+  extends Omit<ConnectOptions, "webWalletUrl" | "argentMobileOptions | tokenboundOptions"> {
   connectors?: StarknetkitConnector[]
 }
 
@@ -39,3 +42,5 @@ export type ModalResult = {
   connectorData: ConnectorData | null
   wallet?: StarknetWindowObject | null
 }
+
+

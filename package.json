@@ -1,5 +1,5 @@
 {
-  "name": "starknetkit",
+  "name": "starknetkit-v2",
   "version": "2.2.26",
   "repository": "github:argentlabs/starknetkit",
   "private": false,
@@ -41,6 +41,12 @@
       "types": "./dist/injectedConnector.d.ts",
       "import": "./dist/injectedConnector.js",
       "require": "./dist/injectedConnector.cjs"
+    },
+
+    "./tokenboundAccount": {
+      "types": "./dist/tokenboundAccount.d.ts",
+      "import": "./dist/tokenboundAccount.js",
+      "require": "./dist/tokenboundAccount.cjs"
     },
     "./window": {
       "types": "./dist/window.d.ts",
