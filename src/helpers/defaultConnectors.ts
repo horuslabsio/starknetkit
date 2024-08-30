@@ -1,4 +1,4 @@
-import { StarknetkitConnector } from "../connectors"
+import { StarknetkitConnector, TokenboundConnector, TokenboundConnectorOptions } from "../connectors"
 import {
   ArgentMobileBaseConnector,
   type ArgentMobileConnectorOptions,
@@ -9,9 +9,11 @@ import { WebWalletConnector } from "../connectors/webwallet"
 export const defaultConnectors = ({
   argentMobileOptions,
   webWalletUrl,
+  tokenboundOptions
 }: {
   argentMobileOptions: ArgentMobileConnectorOptions
-  webWalletUrl?: string
+  webWalletUrl?: string,
+  tokenboundOptions: TokenboundConnectorOptions
 }): StarknetkitConnector[] => {
   const isSafari =
     typeof window !== "undefined"
@@ -31,6 +33,8 @@ export const defaultConnectors = ({
 
   defaultConnectors.push(new ArgentMobileBaseConnector(argentMobileOptions))
   defaultConnectors.push(new WebWalletConnector({ url: webWalletUrl }))
+  defaultConnectors.push(new TokenboundConnector(tokenboundOptions))
+
 
   return defaultConnectors
 }
